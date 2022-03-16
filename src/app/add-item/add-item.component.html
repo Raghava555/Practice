@@ -1,0 +1,87 @@
+<mat-card>
+    <mat-card-header style="background-color: rgb(102, 139, 177); justify-content: center; color: white;">
+        <mat-card-title style="padding: 5px;">
+            Add New Item
+        </mat-card-title>
+    </mat-card-header>
+
+    <mat-card-content style="padding: 10px;">
+        <form [formGroup]="listForm">
+            <div class="row" style="text-align: center;">
+                <div class="col">
+                    <mat-form-field appearance="fill">
+                        <mat-label>FIRST NAME</mat-label>
+                        <input matInput placeholder="FIRST NAME" formControlName="firstName" name="firstName" required>
+                        <span class="text-danger"
+                            *ngIf="(listFormControl.firstName.touched || submitted) && listFormControl.firstName.errors?.required">
+                            First Name is required
+                        </span>
+                    </mat-form-field>
+                </div>
+
+                <div class="col">
+                    <mat-form-field appearance="fill">
+                        <mat-label>LAST NAME</mat-label>
+                        <input matInput placeholder="LAST NAME" formControlName="lastName" name="lastName" required>
+                        <span class="text-danger"
+                            *ngIf="(listFormControl.lastName.touched || submitted) && listFormControl.lastName.errors?.required">
+                            Last Name is required
+                        </span>
+                    </mat-form-field>
+                </div>
+            </div>
+            <div class="row" style="text-align: center;">
+
+                <div class="col">
+                    <mat-form-field appearance="fill">
+                        <mat-label>COUNTRY</mat-label>
+                        <input matInput placeholder="COUNTRY" formControlName="country" name="country" required>
+                        <span class="text-danger"
+                            *ngIf="(listFormControl.country.touched || submitted) && listFormControl.country.errors?.required">
+                            Country is required
+                        </span>
+                    </mat-form-field>
+                </div>
+
+                <div class="col">
+                    <mat-form-field appearance="fill">
+                        <mat-label>GENDER</mat-label>
+                        <mat-select placeholder="GENDER" formControlName="gender" name="gender" required>
+                            <mat-option value="male">MALE</mat-option>
+                            <mat-option value="female">FEMALE</mat-option>
+                        </mat-select>
+
+                        <span class="text-danger"
+                            *ngIf="(listFormControl.gender.touched || submitted) && listFormControl.gender.errors?.required">
+                            Gender is required
+                        </span>
+                    </mat-form-field>
+                </div>
+
+            </div>
+
+            <div class="row" style="text-align: center;">
+                <div class="col">
+                    <mat-form-field appearance="fill">
+                        <mat-label>ADDRESS</mat-label>
+                        <textarea matInput placeholder="ADDRESS" formControlName="address" name="address"
+                            required></textarea>
+                        <span class="text-danger"
+                            *ngIf="(listFormControl.address.touched || submitted) && listFormControl.address.errors?.required">
+                            Job Description is required
+                        </span>
+                    </mat-form-field>
+                </div>
+
+            </div>
+
+
+        </form>
+    </mat-card-content>
+
+    <mat-card-actions style="text-align: center;">
+        <button mat-raised-button color="primary" type="submit" (click)="save()">Save</button>
+        <button mat-raised-button color="warn" routerLink="/">Cancel</button>
+    </mat-card-actions>
+
+</mat-card>
